@@ -1,6 +1,4 @@
 ﻿
-
-
 class Program
 {
     static void Main(string[] args)
@@ -57,8 +55,31 @@ class Program
             Console.WriteLine(ex.Message);
         }
 
+        string reverseString = "Hello World";
+        string? reversed = stringProblems.stringProblems.ReverseString(reverseString);
+        Console.WriteLine("Reversed string: " + reversed);
 
+        int[] firstArray = { 1, 2, 3, 6, 8 };
+        int[] secondArray = { 4, 5, 6 };
+        int[] mergedArray = numbersProblems.numbersProblems.MergeSortedArrays(firstArray, secondArray);
+        Console.WriteLine("Merged array: " + string.Join(", ", mergedArray));
+
+        string str = "125893";
+        bool containsOnlyDigits = stringProblems.stringProblems.ContainsOnlyDigits(str);
+        Console.WriteLine("Contains only digits: " + containsOnlyDigits);
+
+        // Call the async method
+        MainAsync().Wait();
     }
+
+    public static async Task MainAsync()
+    {
+        int start = 1, end = 1000000;
+        List<int> primeNumbers = await multithreadingProblems.multithreadingProblems.FindPrimeNumbersAsync(start, end);
+        Console.WriteLine("Prime numbers between " + start + " and " + end + ": " + string.Join(", ", primeNumbers));
+    }
+
+    
 
 
 }
