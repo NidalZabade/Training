@@ -85,5 +85,54 @@ namespace numbersProblems
             return largest;
         }
 
+        public static int[] MergeSortedArrays(int[] arr1, int[] arr2)
+        {
+            if (arr1 == null || arr2 == null)
+                throw new ArgumentException("Input arrays cannot be null.");
+
+            int[] mergedArray = new int[arr1.Length + arr2.Length];
+            int i = 0, j = 0, k = 0;
+
+            while (i < arr1.Length && j < arr2.Length)
+            {
+                if (arr1[i] < arr2[j])
+                {
+                    mergedArray[k++] = arr1[i++];
+                }
+                else
+                {
+                    mergedArray[k++] = arr2[j++];
+                }
+            }
+
+            while (i < arr1.Length)
+            {
+                mergedArray[k++] = arr1[i++];
+            }
+
+            while (j < arr2.Length)
+            {
+                mergedArray[k++] = arr2[j++];
+            }
+
+            return mergedArray;
+        }
+
+        public static bool IsPrime(int number)
+        {
+            if (number <= 1) return false;
+            if (number <= 3) return true;
+
+            if (number % 2 == 0 || number % 3 == 0) return false;
+
+            for (int i = 5; i * i <= number; i += 6)
+            {
+                if (number % i == 0 || number % (i + 2) == 0)
+                    return false;
+            }
+
+            return true;
+        }
+
     }
 }
