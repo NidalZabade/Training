@@ -43,5 +43,42 @@ namespace stringProblems
         }
 
 
+
+
+        public static string? ReverseString(string str)
+        {
+            if (str == null)
+                return null;
+
+            char[] charArray = str.ToCharArray();
+            int left = 0, right = charArray.Length - 1;
+            while (left < right)
+            {
+                char temp = charArray[left];
+                charArray[left] = charArray[right];
+                charArray[right] = temp;
+                left++;
+                right--;
+            }
+            return new string(charArray);
+        }
+
+        //write a method to check if the string contains only digits
+        public static bool ContainsOnlyDigits(string str)
+        {
+            if (str.Length == 0)
+                return false;
+
+            foreach (char c in str)
+            {
+                if (c < '0' || c > '9')
+                    return false;
+            }
+            return true;
+        }
+
     }
+
+
+    
 }
