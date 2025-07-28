@@ -182,6 +182,25 @@ namespace numbersProblems
             return -1;
         }
 
+        //binary search recursive
+        public static int BinarySearchRecursive(int[] arr, int target, int left, int right)
+        {
+            if (arr == null || arr.Length == 0)
+                throw new ArgumentException("Input array cannot be null or empty.");
+
+            if (left > right)
+                return -1;
+
+            int mid = left + (right - left) / 2;
+
+            if (arr[mid] == target)
+                return mid;
+            else if (arr[mid] < target)
+                return BinarySearchRecursive(arr, target, mid + 1, right);
+            else
+                return BinarySearchRecursive(arr, target, left, mid - 1);
+        }
+
 
     }
 }

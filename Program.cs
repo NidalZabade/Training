@@ -85,6 +85,16 @@ class Program
         {
             Console.WriteLine("Element not found.");
         }
+
+        int indexRecursive = numbersProblems.numbersProblems.BinarySearchRecursive(arr, 3, 0, arr.Length - 1);
+        if (indexRecursive != -1)
+        {
+            Console.WriteLine("Element found at index: " + indexRecursive);
+        }
+        else
+        {
+            Console.WriteLine("Element not found.");
+        }
         
     }
 
