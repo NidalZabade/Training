@@ -134,7 +134,6 @@ namespace numbersProblems
             return true;
         }
 
-        //Find All Subsets of a Given Set, using Recursion use int[]
         public static List<int[]> FindAllSubsets(int[] set)
         {
             List<int[]> subsets = new List<int[]>();
@@ -183,6 +182,6 @@ namespace numbersProblems
             return -1;
         }
 
-        
+
     }
 }
