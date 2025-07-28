@@ -1,5 +1,6 @@
 *.cs
 !*.cs
+test.cs
 
 bin/
 obj/
