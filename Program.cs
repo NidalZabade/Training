@@ -68,8 +68,14 @@ class Program
         bool containsOnlyDigits = stringProblems.stringProblems.ContainsOnlyDigits(str);
         Console.WriteLine("Contains only digits: " + containsOnlyDigits);
 
-        // Call the async method
         MainAsync().Wait();
+
+        int[] set = { 1, 2, 3 };
+        List<int[]> subsets = numbersProblems.numbersProblems.FindAllSubsets(set);
+        Console.WriteLine("All subsets:");
+        Console.WriteLine("[" + string.Join(", ", subsets.Select(subset => "[" + string.Join(",", subset) + "]")) + "]");
+
+        
     }
 
     public static async Task MainAsync()

@@ -134,5 +134,31 @@ namespace numbersProblems
             return true;
         }
 
+        //Find All Subsets of a Given Set, using Recursion use int[]
+        public static List<int[]> FindAllSubsets(int[] set)
+        {
+            List<int[]> subsets = new List<int[]>();
+            FindAllSubsetsRecursive(set, 0, new List<int>(), subsets);
+            return subsets;
+        }
+
+        private static void FindAllSubsetsRecursive(int[] set, int index, List<int> current, List<int[]> subsets)
+        {
+            if (index == set.Length)
+            {
+                subsets.Add(current.ToArray());
+                return;
+            }
+
+            // Exclude current element
+            FindAllSubsetsRecursive(set, index + 1, current, subsets);
+
+            // Include current element
+            current.Add(set[index]);
+            FindAllSubsetsRecursive(set, index + 1, current, subsets);
+            current.RemoveAt(current.Count - 1);
+        }
+
+        
     }
 }
