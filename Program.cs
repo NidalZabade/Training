@@ -75,6 +75,16 @@ class Program
         Console.WriteLine("All subsets:");
         Console.WriteLine("[" + string.Join(", ", subsets.Select(subset => "[" + string.Join(",", subset) + "]")) + "]");
 
+        int[] arr = { 1, 2, 3, 4, 5 };
+        int indexIterative = numbersProblems.numbersProblems.BinarySearchIterative(arr, 3);
+        if (indexIterative != -1)
+        {
+            Console.WriteLine("Element found at index: " + indexIterative);
+        }
+        else
+        {
+            Console.WriteLine("Element not found.");
+        }
         
     }
 
