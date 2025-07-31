@@ -9,7 +9,7 @@ public class Person
 
 public static class DeepCloner
 {
-    public static T DeepClone<T>(T obj)
+    public static T? DeepClone<T>(T obj)
     {
         if (obj == null) return default;
         var json = JsonSerializer.Serialize(obj);
