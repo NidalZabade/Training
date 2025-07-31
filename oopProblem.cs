@@ -1,6 +1,5 @@
 using System.Text.Json;
 
-[Serializable]
 public class Person
 {
     public string? Name { get; set; }
@@ -13,6 +12,7 @@ public static class DeepCloner
     {
         if (obj == null) return default;
         var json = JsonSerializer.Serialize(obj);
+        // Console.WriteLine("Serialized JSON: " + json);
         return JsonSerializer.Deserialize<T>(json)!;
     }
 
