@@ -1,6 +1,7 @@
 *.cs
 !*.cs
 test.cs
+basics.md
 
 bin/
 obj/

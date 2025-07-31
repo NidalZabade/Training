@@ -131,7 +131,42 @@ class Program
 
         Console.WriteLine("Total cost of electricity usage: " + totalCost.ToString("F3"));
 
+
+        int[,] matrix = new int[,]
+    {
+        { 0, 0, 3, 0 },
+        { 0, 0, 0, 0 },
+        { 4, 0, 0, 5 }
+    };
+
+        var compressed = numbersProblems.numbersProblems.CompressSparseMatrix(matrix);
+        Console.WriteLine("Compressed sparse matrix:");
+        foreach (var kvp in compressed)
+        {
+            Console.WriteLine($"Position ({kvp.Key.Item1}, {kvp.Key.Item2}) = {kvp.Value}");
+        }
+
+        int[,] decompressed = numbersProblems.numbersProblems.DecompressSparseMatrix(compressed, matrix.GetLength(0), matrix.GetLength(1));
+        Console.WriteLine("Decompressed matrix:");
+        for (int i = 0; i < decompressed.GetLength(0); i++)
+        {
+            for (int j = 0; j < decompressed.GetLength(1); j++)
+            {
+                Console.Write(decompressed[i, j] + " ");
+            }
+            Console.WriteLine();
+        }
+
+        string pattern = "A#x";
+        List<string> passwords = stringProblems.stringProblems.GeneratePasswords(pattern);
+        Console.WriteLine("Generated passwords for pattern '" + pattern + "':");
+        foreach (string password in passwords)
+        {
+            Console.WriteLine(password);
+        }
+
     }
+    
 
     public static async Task MainAsync()
     {
@@ -142,5 +177,5 @@ class Program
 
     
 
-
+    
 }

@@ -202,5 +202,47 @@ namespace numbersProblems
         }
 
 
+        public static Dictionary<(int, int), int> CompressSparseMatrix(int[,] matrix)
+        {
+            if (matrix == null)
+                throw new ArgumentException("Input matrix cannot be null.");
+
+            var compressed = new Dictionary<(int, int), int>();
+            int rows = matrix.GetLength(0);
+            int cols = matrix.GetLength(1);
+
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < cols; j++)
+                {
+                    if (matrix[i, j] != 0)
+                    {
+                        compressed[(i, j)] = matrix[i, j];
+                    }
+                }
+            }
+            return compressed;
+        }
+
+        public static int[,] DecompressSparseMatrix(Dictionary<(int, int), int> compressed, int rows, int cols)
+        {
+            if (compressed == null)
+                throw new ArgumentException("Compressed dictionary cannot be null.");
+            if (rows <= 0 || cols <= 0)
+                throw new ArgumentException("Matrix dimensions must be positive.");
+
+            int[,] matrix = new int[rows, cols];
+
+            foreach (var kvp in compressed)
+            {
+                var (i, j) = kvp.Key;
+                if (i < 0 || i >= rows || j < 0 || j >= cols)
+                    throw new ArgumentException("Invalid coordinate in compressed dictionary.");
+                matrix[i, j] = kvp.Value;
+            }
+
+            return matrix;
+        }
+
     }
 }
