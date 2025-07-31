@@ -3,8 +3,8 @@ using System.Text.Json;
 [Serializable]
 public class Person
 {
-    public string Name { get; set; }
-    public Person Friend { get; set; }
+    public string? Name { get; set; }
+    public Person? Friend { get; set; }
 }
 
 public static class DeepCloner
