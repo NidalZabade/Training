@@ -60,7 +60,6 @@ namespace stringProblems
             return new string(charArray);
         }
 
-        //write a method to check if the string contains only digits
         public static bool ContainsOnlyDigits(string str)
         {
             if (str.Length == 0)
@@ -74,6 +73,50 @@ namespace stringProblems
             return true;
         }
 
+        public static List<string> GeneratePasswords(string pattern)
+        {
+            if (string.IsNullOrEmpty(pattern))
+                return new List<string>();
+
+            List<string> results = new List<string>() { "" };
+
+            foreach (char p in pattern)
+            {
+                List<string> temp = new List<string>();
+                IEnumerable<char> chars;
+                switch (p)
+                {
+                    case 'A':
+                        chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+                        break;
+                    case 'a':
+                        chars = "abcdefghijklmnopqrstuvwxyz";
+                        break;
+                    case '#':
+                        chars = "0123456789";
+                        break;
+                    case '*':
+                        chars = "!@#$%^&*()-_=+[]{}|;:',.<>?/`~";
+                        break;
+                    default:
+                        chars = new[] { p };
+                        break;
+                }
+
+                foreach (var prefix in results)
+                {
+                    foreach (var c in chars)
+                    {
+                        temp.Add(prefix + c);
+                    }
+                }
+                results = temp;
+            }
+
+            return results;
+        }
 
     }
+
+    
 }

@@ -157,7 +157,19 @@ partial class Program
             Console.WriteLine();
         }
 
+
+
+        string pattern = "A#x";
+        List<string> passwords = stringProblems.stringProblems.GeneratePasswords(pattern);
+        Console.WriteLine("Generated passwords for pattern '" + pattern + "':");
+        foreach (string password in passwords)
+        {
+            Console.WriteLine(password);
+        }
+
+
     }
+    
     
 
     public static async Task MainAsync()
