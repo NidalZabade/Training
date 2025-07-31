@@ -1,5 +1,5 @@
 ﻿
-class Program
+partial class Program
 {
     static void Main(string[] args)
     {
@@ -155,14 +155,6 @@ class Program
                 Console.Write(decompressed[i, j] + " ");
             }
             Console.WriteLine();
-        }
-
-        string pattern = "A#x";
-        List<string> passwords = stringProblems.stringProblems.GeneratePasswords(pattern);
-        Console.WriteLine("Generated passwords for pattern '" + pattern + "':");
-        foreach (string password in passwords)
-        {
-            Console.WriteLine(password);
         }
 
     }
