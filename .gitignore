@@ -4,6 +4,7 @@ test.cs
 
 bin/
 obj/
+docs/
 
 Training.sln
 Training.csproj
