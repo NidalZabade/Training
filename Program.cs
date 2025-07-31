@@ -95,7 +95,42 @@ class Program
         {
             Console.WriteLine("Element not found.");
         }
-        
+
+        var records = new List<UsageRecord>
+        {
+            new UsageRecord
+            {
+                StartTime = DateTime.Parse("2024-06-01T21:30:00"),
+                EndTime = DateTime.Parse("2024-06-01T22:30:00"),
+                PowerKW = 2.0
+            }
+            ,
+            new UsageRecord
+            {
+                StartTime = DateTime.Parse("2024-06-01T23:00:00"),
+                EndTime = DateTime.Parse("2024-06-02T01:00:00"),
+                PowerKW = 1.5
+            }
+            ,
+            new UsageRecord
+            {
+                StartTime = DateTime.Parse("2024-06-02T05:00:00"),
+                EndTime = DateTime.Parse("2024-06-02T07:00:00"),
+                PowerKW = 3.0
+            }
+            ,
+            new UsageRecord
+            {
+                StartTime = DateTime.Parse("2024-06-02T08:00:00"),
+                EndTime = DateTime.Parse("2024-06-02T10:00:00"),
+                PowerKW = 2.0
+            }
+        };
+
+        double totalCost = ElectricityUsageBillingOptimizer.CalculateTotalCost(records);
+
+        Console.WriteLine("Total cost of electricity usage: " + totalCost.ToString("F3"));
+
     }
 
     public static async Task MainAsync()
