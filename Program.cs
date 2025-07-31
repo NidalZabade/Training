@@ -170,7 +170,7 @@ partial class Program
         Person? clone = DeepCloner.DeepClone(original);
 
         Console.WriteLine("Original: " + original.Name + ", Friend: " + original.Friend.Name);
-        Console.WriteLine("Clone: " + clone?.Name + ", Friend: " + clone?.Friend.Name);
+        Console.WriteLine("Clone: " + (clone?.Name ?? "null") + ", Friend: " + (clone?.Friend?.Name ?? "null"));
 
 
     }
