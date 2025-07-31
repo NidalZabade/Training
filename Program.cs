@@ -158,7 +158,6 @@ partial class Program
         }
 
 
-
         string pattern = "A#x";
         List<string> passwords = stringProblems.stringProblems.GeneratePasswords(pattern);
         Console.WriteLine("Generated passwords for pattern '" + pattern + "':");
@@ -166,6 +165,12 @@ partial class Program
         {
             Console.WriteLine(password);
         }
+        
+         Person original = new Person { Name = "Ahmad", Friend = new Person { Name = "Sara" } };
+        Person clone = DeepCloner.DeepClone(original);
+
+        Console.WriteLine("Original: " + original.Name + ", Friend: " + original.Friend.Name);
+        Console.WriteLine("Clone: " + clone.Name + ", Friend: " + clone.Friend.Name);
 
 
     }
